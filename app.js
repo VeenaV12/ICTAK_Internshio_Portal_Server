@@ -14,6 +14,10 @@ const referenceRouter = require('./Routers/referenceRouter')
 const forumRouter = require('./Routers/forumRouter')
 const submitRouter = require('./Routers/Postroutes');
 
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
 
 app.use('/', authRouter);
 app.use('/', projectRouter);
