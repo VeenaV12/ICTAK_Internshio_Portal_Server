@@ -36,15 +36,22 @@ app.get('/', (req, res) => {
 });
 
 
-app.use('/', authRouter);
+/*app.use('/', authRouter);
 app.use('/', projectRouter);
 app.use('/', referenceRouter)
 app.use('/', forumRouter)
+app.use('/', submitRouter);*/
+
+app.use('/api/auth', authRouter);
+app.use('/api/projects', projectRouter);
+app.use('/api/references', referenceRouter);
+app.use('/api/forums', forumRouter);
+app.use('/api/submissions', submitRouter);
 
 
 // app.get('/*',function(req,res){res.sendFile(path.join(__dirname,'../Frontend/index.html'));});
 
-app.use('/', submitRouter);
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend-build', 'index.html'));
