@@ -1,12 +1,13 @@
 const express = require('express')
 const cors = require('cors')
+const path = require('path');
 require('dotenv').config()
 require('./DB/mongoDB')
 
 const app = express()
 app.use(express.json());
 app.use(cors());
-app.use('/uploads', express.static(path.join(__dirname, 'Uploads')));
+app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
 
 
 const authRouter = require('./Routers/authRouter');
