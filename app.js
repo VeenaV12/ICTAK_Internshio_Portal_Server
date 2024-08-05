@@ -6,7 +6,7 @@ require('./DB/mongoDB')
 const app = express()
 app.use(express.json());
 app.use(cors());
-app.use('/uploads', express.static('Uploads'));
+app.use('/Uploads', express.static('Uploads'));
 
 const authRouter = require('./Routers/authRouter');
 const projectRouter = require('./Routers/projectRouter')
