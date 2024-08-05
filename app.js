@@ -16,7 +16,7 @@ app.use(cors({
 }));
 
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'frontend-build')));
 
 // Catch-all route to serve the frontend app
 
@@ -47,7 +47,7 @@ app.use('/', forumRouter)
 app.use('/', submitRouter);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend-build', 'index.html'));
 });
 
 const port = process.env.PORT || 4000
