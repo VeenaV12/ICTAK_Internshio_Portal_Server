@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin:"https://ictak-internship-portal-client-two.vercel.app/",
+  origin:"https://ictak-internship-portal-client-two.vercel.app",
   credentials:true,
   methods:['POST','GET','DELETE','PUT']
 }));
