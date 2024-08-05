@@ -19,9 +19,7 @@ app.use(cors({
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Catch-all route to serve the frontend app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+
 
 
 app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
@@ -47,6 +45,10 @@ app.use('/', forumRouter)
 // app.get('/*',function(req,res){res.sendFile(path.join(__dirname,'../Frontend/index.html'));});
 
 app.use('/', submitRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 const port = process.env.PORT || 4000
 app.listen(port, () => {
