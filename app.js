@@ -16,7 +16,7 @@ app.use(cors({
 }));
 
 
-app.use(express.static(path.join(__dirname, 'frontend-build')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Catch-all route to serve the frontend app
 
@@ -54,7 +54,7 @@ app.use('/api/submissions', submitRouter);
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend-build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 const port = process.env.PORT || 4000
