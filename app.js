@@ -14,6 +14,16 @@ app.use(cors({
   credentials:true,
   methods:['POST','GET','DELETE','PUT']
 }));
+
+
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Catch-all route to serve the frontend app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+
 app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
 
 
