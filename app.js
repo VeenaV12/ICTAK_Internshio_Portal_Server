@@ -12,7 +12,8 @@ app.use(express.json());
 app.use(cors({
   origin:"https://ictak-internship-portal-client-two.vercel.app",
   credentials:true,
-  methods:['POST','GET','DELETE','PUT']
+  methods:['POST','GET','DELETE','PUT'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 
