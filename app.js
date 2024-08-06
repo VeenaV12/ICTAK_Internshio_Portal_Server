@@ -58,12 +58,6 @@ app.get('/', (req, res) => {
 });
 
 
-/*app.use('/', authRouter);
-app.use('/', projectRouter);
-app.use('/', referenceRouter)
-app.use('/', forumRouter)
-app.use('/', submitRouter);*/
-
 app.use('/api/auth', authRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/references', referenceRouter);
