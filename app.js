@@ -6,22 +6,34 @@ require('./DB/mongoDB')
 
 const app = express()
 app.use(express.json());
+
+
+const corsOptions = {
+  origin: "https://ictak-internship-portal-client-two.vercel.app",
+  credentials: true,
+  methods: ['POST', 'GET', 'DELETE', 'PUT'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+
+
 //app.use(cors());
 
-
-app.use(cors({
+app.use(cors(corsOptions));
+/*app.use(cors({
   origin:"https://ictak-internship-portal-client-two.vercel.app",
   credentials:true,
   methods:['POST','GET','DELETE','PUT'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}));
+}));*/
 
 
 app.use(express.static(path.join(__dirname, 'public','static')));
 
 
 
-app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
+//app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
+app.use('/Uploads', cors(corsOptions), express.static(path.join(__dirname, 'Uploads')));
 
 
 const authRouter = require('./Routers/authRouter');
