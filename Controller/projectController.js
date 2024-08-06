@@ -24,8 +24,8 @@ const getProject = async (req, res) => {
     }
     
    
-    if (project.pdf && project.pdf.path) {
-      return res.status(200).json({ pdf: project.pdf.path });
+    if (project.pdf && project.pdf.filename) {
+      return res.status(200).json({ pdf: project.pdf.filename });
     } else {
       return res.status(404).json({ message: 'PDF path not found for this project' });
     }

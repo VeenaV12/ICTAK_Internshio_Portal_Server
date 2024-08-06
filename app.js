@@ -32,8 +32,19 @@ app.use(express.static(path.join(__dirname, 'public','static')));
 
 
 
-//app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
-app.use('/Uploads', cors(corsOptions), express.static(path.join(__dirname, 'Uploads')));
+app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
+//app.use('/Uploads', cors(corsOptions), express.static(path.join(__dirname, 'Uploads')));
+app.get('/api/download/:filename', (req, res) => {
+  const { filename } = req.params;
+  const filePath = path.join(__dirname, 'Uploads', filename);
+
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error('File send error:', err);
+      res.status(404).send('File not found');
+    }
+  });
+});
 
 
 const authRouter = require('./Routers/authRouter');
